@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import NavBar from './components/NavBar'
 import News from './components/News'
 import{
-  BrowserRouter as Router,
+  BrowserRouter,
   Routes,
   Route,
   
@@ -14,12 +14,11 @@ export default class App extends Component {
     return (
       <div className='container '>
         
-        <Router basename={process.env.PUBLIC_URL}>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
         <NavBar />
        <Routes>
-          
-        <Route exact path='/general' element={<News  key="general" pageSize={5} country="in" category="general"/>}>
-          </Route>
+       <Route exact path='/' element={<News  key="general" pageSize={5} country="in" category="general"/>}></Route>
+        <Route exact path='/general' element={<News  key="general" pageSize={5} country="in" category="general"/>}></Route>
           <Route exact path='/entertainment' element={<News  key="entertainment" pageSize={5} country="in" category="entertainment"/>}> </Route>
           <Route exact path='/business' element={<News  key="business" pageSize={5} country="in" category="business"/>}> </Route>
           <Route exact path='/sports' element={<News  key="sports" pageSize={5} country="in" category="sports"/>}> </Route>
@@ -33,7 +32,7 @@ export default class App extends Component {
          
           </Routes>
       
-        </Router>
+        </BrowserRouter>
 
       </div>
     )
